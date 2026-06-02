@@ -4,11 +4,12 @@ services:
     build:
       context: .
       dockerfile: docker/laravel/Dockerfile
-    working_dir: /var/www/html
+    working_dir: /var/www/html  #if in image already set working dir, here is unneccessary
     ports:
       - "9000:8000"
     volumes:
-      - ./laravel-app:/var/www/html
+      - ./laravel-app:/var/www/html   #this will bind our local code in folder laravel-app with var/www/html in container
+                                      # means that we sync the file both inside laravel-app and var/www/html
 
   vuejs-service:
     container_name: vuejs-container
