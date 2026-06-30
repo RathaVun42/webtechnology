@@ -60,4 +60,11 @@ class AuthController extends Controller
             'message' => 'User signed out.'
         ], 200);
     }
+    function verify(Request $request)
+    {
+        return response([
+            'message' => 'Token is valid.',
+            'user' => new UserResource($request->user())
+        ], 200);
+    }
 }
