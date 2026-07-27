@@ -37,7 +37,7 @@ services:
     depends_on:
       mysql-service:
         condition: service_healthy
-    command: ["bash", "/usr/local/bin/entrypoint.development.sh"]
+    command: ["bash", "/usr/local/bin/entrypoint.development.sh"] # by using bash, this will run the entrypoint.development.sh script when the container starts, which will install dependencies, generate an application key, and run database migrations.
     # healthcheck:
     #   test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
     #   interval: 10s
