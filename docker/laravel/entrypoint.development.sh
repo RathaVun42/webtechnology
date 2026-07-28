@@ -3,6 +3,8 @@ set -e  #If any command returns an error (non-zero exit code), stop executing th
 
 # composer install
 # wait $!
+# npm install
+# wait $!
 #php artisan key:generate #this will generate a new application key for your Laravel application. 
                          #it stores the key in the .env file and is used for encryption and security purposes.
                          #it will generate a random key into .env file everytime you run this script, so make sure to run it only once when setting up your application for the first time.
@@ -13,4 +15,5 @@ fi
 wait $!
 php artisan migrate
 wait $!
-php artisan serve --host=0.0.0.0 --port=8000
+exec supervisord -c /etc/supervisor/conf.d/supervisord.development.conf
+

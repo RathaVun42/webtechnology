@@ -24,14 +24,15 @@
 services:
   laravel-service:
     container_name: laravel-container
-    build:
+    build: # in here were we build our image, we can specify the context and dockerfile to use for building the image.
       context: .
       dockerfile: docker/laravel/Dockerfile
     working_dir: /var/www/html
     volumes:
       - ./laravel-app:/var/www/html
-      - backend_data:/var/www/html/vendor
+      # - backend_data:/var/www/html/vendor
       - ./docker/laravel/entrypoint.development.sh:/usr/local/bin/entrypoint.development.sh
+      - ./docker/laravel/supervisord.development.conf:/etc/supervisor/conf.d/supervisord.development.conf
     ports:
       - "8000:8000"
     depends_on:
