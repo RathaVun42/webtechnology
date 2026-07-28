@@ -13,6 +13,7 @@ class GoogleOAuthController extends Controller
     function googleOAuthRedirect(Request $request)
     {
         $callback_url = $request->query('callback_url', '');
+        
         /** @var \Laravel\Socialite\Two\GoogleProvider $googleProvider */
         $googleProvider = Socialite::driver('google');
 
