@@ -118,6 +118,7 @@ const googleSignIn = async () => {
   try {
     LoadingModal();
     const { data } = await apiGoogleOAuthRedirect();
+    
     // the body of the response will be like this:
     // {
     //   data: {

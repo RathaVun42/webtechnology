@@ -22,7 +22,7 @@ class GoogleOAuthController extends Controller
             ->with(['state' => base64_encode($callback_url)])
             ->redirect()
             ->getTargetUrl();
-
+        // https://accounts.google.com/o/oauth2/auth?client_id=...
         return response(['redirect_url' => $redirectUrl], 200);
     }
 

@@ -11,6 +11,7 @@ export async function apiGoogleOAuthRedirect() {
     throw error;
   }
 }
+
 export async function apiGoogleOAuthExchangeToken(token) {
   try {
     return await axios.post(APP_API_URL + '/google/oauth/exchange/token', null, {
