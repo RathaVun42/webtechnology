@@ -39,7 +39,7 @@ class GoogleOAuthController extends Controller
         }
 
         $user = User::firstOrCreate(
-            ['email' => $googleUser->getEmail()],
+            ['email' => $googleUser->getEmail()], // this will check whethr this email is already exist or not? not create a new one
             [
                 'name' => $googleUser->getName(),
             ]
